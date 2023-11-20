@@ -21,7 +21,7 @@ import SwiftUI
 ///데이터를 해석할 수 있는 틀이 필요하다.
 ///
 ///
-///https://koreanjson.com/users
+///
 struct Post: Decodable {
     let id: Int
     let title, content, createdAt, updatedAt: String
@@ -57,6 +57,10 @@ struct User: Decodable { //서버에 요청을 해서 받아올거기 때문에 
 struct ContentView: View {
     @State var posts: [String] = ["hi", "say", "hee"]
     @State var users: [String] = ["user1", "user2"]
+    
+    @State var userAddress: String = "https://koreanjson.com/users/1"
+    @State var postAddress: String = "https://koreanjson.com/posts/1"
+    
     var body: some View {
         VStack {
             List {
@@ -70,7 +74,7 @@ struct ContentView: View {
             }
             //MARK: Request Button 1
             Button {
-                requestData()
+                requestPost()
             } label: {
                 Text("Request Post")
             }
@@ -84,37 +88,38 @@ struct ContentView: View {
         }
     }
     
-    private func requestData() {
-        requestArticle { article, error in
+    private func requestPost() {
+        requestURL(urlString: postAddress) { Post, error in
             
-            guard let article = article else {
+            guard let Post = Post else {
                 print("error")
                 return
             }
             
-            posts.append(article.title)
+            posts.append(Post.title)
         }
     }
     
     private func requestUser() {
-        requestArticle { article, error in
+        requestUser(urlString: userAddress) { user, error in
             
-            guard let article = article else {
+            guard let user = user else {
                 print("error")
                 return
             }
             
-            posts.append(article.title)
+            users.append(user.name)
         }
     }
     
     //MARK: 04 another request 영상부터 다시 보기
-    func requestArticle(completion: @escaping (Post?, String?) -> ()) {
+    //urlString 매개변수로 넣어서 작성하기
+    func requestURL(urlString: String, completion: @escaping (Post?, String?) -> ()) {
         //어디에 요청을 할 것인가?
-        let endPoint = "https://koreanjson.com/posts/1"
+//        let urlString = "https://koreanjson.com/posts/1"
         
         //위에가 url인지 검증하기
-        guard let url = URL(string: endPoint) else {
+        guard let url = URL(string: urlString) else {
             completion(nil, "This is not correct url")
             return
         }
@@ -176,6 +181,44 @@ struct ContentView: View {
             
             do {
                 let decodedResponse = try JSONDecoder().decode(Post.self, from: data)
+                //data.append(decodedResponse.title)
+                completion(decodedResponse, nil)
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
+    
+    func requestUser(urlString: String, completion: @escaping (User?, String?) -> ()) {
+        //어디에 요청을 할 것인가?
+//        let urlString = "https://koreanjson.com/posts/1"
+        
+        //위에가 url인지 검증하기
+        guard let url = URL(string: urlString) else {
+            completion(nil, "This is not correct url")
+            return
+        }
+        
+        //URLSession 생성(기본 세션)
+        //dataTask
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let _ = error {
+                completion(nil, "We got some error. check the internet.")
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(nil, "Invaild response")
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, "The data recived is wrong.")
+                return
+            }
+            
+            do {
+                let decodedResponse = try JSONDecoder().decode(User.self, from: data)
                 //data.append(decodedResponse.title)
                 completion(decodedResponse, nil)
             } catch {
