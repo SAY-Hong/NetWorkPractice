@@ -13,6 +13,7 @@
 		B1A6752D2B03CD7400F5D02D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A6752C2B03CD7400F5D02D /* Preview Assets.xcassets */; };
 		B1A675382B03DAD300F5D02D /* FunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A675372B03DAD300F5D02D /* FunctionTest.swift */; };
 		B1F69D252B0CEC260083C0F5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F69D242B0CEC260083C0F5 /* NetworkManager.swift */; };
+		B1F69D272B0CF4690083C0F5 /* BestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F69D222B0CDC5F0083C0F5 /* BestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 			files = (
 				B1A675282B03CD7300F5D02D /* ContentView.swift in Sources */,
 				B1A675262B03CD7300F5D02D /* NetworkPracticeApp.swift in Sources */,
+				B1F69D272B0CF4690083C0F5 /* BestView.swift in Sources */,
 				B1F69D252B0CEC260083C0F5 /* NetworkManager.swift in Sources */,
 				B1A675382B03DAD300F5D02D /* FunctionTest.swift in Sources */,
 			);
