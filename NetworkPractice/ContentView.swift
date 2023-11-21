@@ -58,9 +58,6 @@ struct ContentView: View {
     @State var posts: [String] = ["hi", "say", "hee"]
     @State var users: [String] = ["user1", "user2"]
     
-    @State var userAddress: String = "https://koreanjson.com/users/1"
-    @State var postAddress: String = "https://koreanjson.com/posts/1"
-    
     var body: some View {
         VStack {
             List {
@@ -89,7 +86,7 @@ struct ContentView: View {
     }
     
     private func requestPost() {
-        NetworkManager.shared.requestURL(urlString: postAddress) { Post, error in
+        NetworkManager.shared.requestURL(urlString: NetworkManager.shared.postAddress) { Post, error in
             guard let Post = Post else {
                 print("error")
                 return
@@ -99,7 +96,7 @@ struct ContentView: View {
     }
     
     private func requestUser() {
-        NetworkManager.shared.requestUser(urlString: userAddress) { user, error in
+        NetworkManager.shared.requestUser(urlString: NetworkManager.shared.userAddress) { user, error in
             guard let user = user else {
                 print("error")
                 return

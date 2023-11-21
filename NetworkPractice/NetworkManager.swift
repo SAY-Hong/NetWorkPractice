@@ -11,6 +11,9 @@ class NetworkManager { //싱글턴?
     static let shared = NetworkManager()
     
     private init() {}
+    
+    var userAddress: String = "https://koreanjson.com/users/1"
+    var postAddress: String = "https://koreanjson.com/posts/1"
 
     func requestURL(urlString: String, completion: @escaping (Post?, String?) -> ()) {
         //어디에 요청을 할 것인가?
