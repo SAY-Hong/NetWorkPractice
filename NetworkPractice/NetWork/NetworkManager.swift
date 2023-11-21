@@ -5,9 +5,12 @@
 //  Created by 홍세희 on 2023/11/21.
 //
 
+//MARK: 싱글턴
+//
+
 import Foundation
 
-class NetworkManager { //싱글턴?
+final class NetworkManager { //MARK: final 키워드 굳이 사용한 이유?
     static let shared = NetworkManager()
     
     private init() {}
