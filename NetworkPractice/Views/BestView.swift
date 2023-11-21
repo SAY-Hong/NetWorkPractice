@@ -10,6 +10,7 @@ import SwiftUI
 struct BestView: View {
     @State private var text = "URL 받아오기 전"
     @State private var users: [String] = []
+    
     var body: some View {
         VStack(spacing: 100) {
             Text(text)
