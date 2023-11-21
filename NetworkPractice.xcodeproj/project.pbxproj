@@ -12,6 +12,7 @@
 		B1A6752A2B03CD7400F5D02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A675292B03CD7400F5D02D /* Assets.xcassets */; };
 		B1A6752D2B03CD7400F5D02D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A6752C2B03CD7400F5D02D /* Preview Assets.xcassets */; };
 		B1A675382B03DAD300F5D02D /* FunctionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A675372B03DAD300F5D02D /* FunctionTest.swift */; };
+		B1F69D252B0CEC260083C0F5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F69D242B0CEC260083C0F5 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,8 @@
 		B1A675292B03CD7400F5D02D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1A6752C2B03CD7400F5D02D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B1A675372B03DAD300F5D02D /* FunctionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTest.swift; sourceTree = "<group>"; };
+		B1F69D222B0CDC5F0083C0F5 /* BestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestView.swift; sourceTree = "<group>"; };
+		B1F69D242B0CEC260083C0F5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +58,11 @@
 			children = (
 				B1A675252B03CD7300F5D02D /* NetworkPracticeApp.swift */,
 				B1A675272B03CD7300F5D02D /* ContentView.swift */,
+				B1F69D222B0CDC5F0083C0F5 /* BestView.swift */,
 				B1A675292B03CD7400F5D02D /* Assets.xcassets */,
 				B1A6752B2B03CD7400F5D02D /* Preview Content */,
 				B1A675372B03DAD300F5D02D /* FunctionTest.swift */,
+				B1F69D242B0CEC260083C0F5 /* NetworkManager.swift */,
 			);
 			path = NetworkPractice;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			files = (
 				B1A675282B03CD7300F5D02D /* ContentView.swift in Sources */,
 				B1A675262B03CD7300F5D02D /* NetworkPracticeApp.swift in Sources */,
+				B1F69D252B0CEC260083C0F5 /* NetworkManager.swift in Sources */,
 				B1A675382B03DAD300F5D02D /* FunctionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
