@@ -25,7 +25,12 @@ struct ContentView: View {
 //    @StateObject var contentModel = ContentViewModel() 
     @ObservedObject private var contentModel = ContentViewModel()
     //MARK: @StateObject와 @ObservedObject
-    
+/*
+     - 공통: 관찰 중인 객체의 변경에 반응 -> 화면 업뎃
+     - @StateObject: 관찰되는 객체 -> 화면 구조가 재생성되어도 파괴X.
+     - 스유가 화면을 만들거나 다시 그릴 수 있는 가능성이 있는 경우 -> ObservedObject 안전X.
+     - 둘의 큰 차이점 -> 라이플 사이클의 관리 여부.
+*/
     
     
     var body: some View {

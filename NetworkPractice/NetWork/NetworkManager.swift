@@ -6,7 +6,7 @@
 //
 
 //MARK: 싱글턴
-//
+// 노션 정리 완
 
 import Foundation
 
