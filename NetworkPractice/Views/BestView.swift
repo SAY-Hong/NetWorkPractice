@@ -29,7 +29,7 @@ struct BestView: View {
     private func requestUser() {
         NetworkManager.shared.requestUser(urlString: NetworkManager.shared.userAddress) { user, error in
             guard let user = user else {
-                print("error")
+                print(error?.errorMessage ?? "알 수 없는 에러")
                 return
             }
             users.append(user.name)
